@@ -5,24 +5,28 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+*Ruby version
+  2.4.3p205
 
-* System dependencies
+*Web packer
+  bundle exec rake webpacker:install
+  bundle exec rake webpacker:install:react
+  rails generate react:install
 
-* Configuration
+*Add javascript pack to layout (application):
+  <%= stylesheet_pack_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
 
-* Database creation
+*import css ant `javascript/packs/application`
+  import 'antd/dist/antd.css';
 
-* Database initialization
+*Add Component:
+  rails g react:component Post greeting:string
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*Render Component
+  <%= react_component("Post", { greeting: "Hello from react-rails." }) %>
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+*Start server
+  rails: rails s
+  js: ./bin/webpack-dev-server
